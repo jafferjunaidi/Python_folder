@@ -1,0 +1,55 @@
+Python & Django commands:
+
+python --version OR py --version (check python's version)
+pip --version (check pip version)
+python -m venv myenv (create environment variable inside your project)
+myenv\Scripts\activate (activate environment variable inside your project)
+pip install django (install django)
+python -m django --version OR pip freeze  (check django version) 
+django-admin startproject django_firstapp OR python -m django startproject django_firstapp (create django project)
+cd django_firstapp
+python manage.py runserver (run django server)
+python manage.py runserver 3000 (run django server to your desired port)
+(http://127.0.0.1:8000/admin/) <-- to open Django administration
+python manage.py migrate (for default tables / custom)
+python manage.py createsuperuser (creates super user to login into Django administration)
+
+python manage.py startapp Modal_name(create Model)
+
+Create Model in models.py:
+
+from django.db import models
+
+# Create your models here.
+class Student(models.Model):
+    name = models.CharField(max_length=50)
+    age = models.IntegerField() 
+    city = models.CharField(max_length=50)
+    email = models.EmailField(max_length=60)
+
+
+Register Model in admin.py:
+
+from django.contrib import admin
+from .models import Student
+
+# Register your models here.
+class StudentAdmin(admin.ModelAdmin):
+    list_display=('name','age','city','email') # to show columns in database
+admin.site.register(Student,StudentAdmin)         
+            
+
+
+python manage.py makemigrations (for history) 
+python manage.py migrate (to send in database)
+python manage.py changepassword username (Before change password you must know your username)
+
+
+
+
+
+
+
+
+
+
